@@ -179,7 +179,7 @@ select {
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -190,7 +190,7 @@ select {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 600px;
-    padding: 8px;
+    padding: 5px;
     position: relative;
     box-sizing: border-box;
 }
@@ -199,7 +199,7 @@ select {
     position: relative;
     background-color: #FFFFD1;
     margin: 0;
-    padding: 8px 8px;
+    padding: 5px 5px;
     border-radius: 10px;
     border: 1.5px solid green;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -381,7 +381,7 @@ select {
 .checkmark {
     position: absolute;
     top: 30%;
-    right: -43px;
+    right: -38px;
     transform: translateY(-50%);
     color: #FF0000;
     font-size: 45px;
@@ -394,7 +394,7 @@ select {
 .thai-lottery-form {
     display: none;
     background-color: lightyellow;
-    margin: 10px auto;
+    margin: 5px auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 2px solid green;
@@ -503,10 +503,10 @@ select {
 
 #thaiLotteryPopupContent .result-display {
     background-color: #FFFFD1;
-    padding: 20px 10px;
+    padding: 10px 5px; /*⬅️ ลด padding จาก 20px 10px */
     border-radius: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px; /* ⬅️ ลด margin */
+    margin-bottom: 5px; /* ⬅️ ลด margin */
     margin: 0 5px;
     border-radius: 10px;
     border: 1.5px solid #4CAF50;
@@ -523,26 +523,26 @@ select {
 #thaiLotteryPopupContent .draw-date {
     display: inline-block;
     color: #fff;
-    padding: 10px 10px;
-    font-size: 15px;
+    padding: 10px 15px; /*⬅️ ลด padding จาก 10px */
+    font-size: 14px; /* ⬅️ ลดขนาดฟอนต์เล็กน้อย */
     font-weight: bold;
     border: 2px solid #E65100;
     background: linear-gradient(to bottom, #FFB74D, #FB8C00);
     border-radius: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px; /* ⬅️ ลด margin */
+    margin-bottom: 5px; /* ⬅️ ลด margin */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 #thaiLotteryPopupContent .prize-title {
     display: inline-block;
-    font-size: 22px;
+    font-size: 20px; /*⬅️ ลดขนาดจาก 22px */
     font-weight: bold;
     border: 2px solid #D32F2F;
     border-radius: 50px;
-    padding: 10px 20px;
-    margin: 4px 0 7px;
+    padding: 10px 15px; /* ⬅️ ลด padding จาก 10px 20px */
+    margin: 2px 0 4px; /* ⬅️ ลด margin จาก 4px 0 7px */
     background: linear-gradient(to bottom, #EF9A9A, #E53935);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     color: #fff;
@@ -555,8 +555,8 @@ select {
     display: inline-block;
     font-weight: bold;
     margin: 0;
-    margin-bottom: 5px;
-    padding: 10px 15px;
+    margin-bottom: 3px; /*⬅️ ลด margin */
+    padding: 10px 15px; /* ⬅️ ลด padding จาก 10px 15px */
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.6),
@@ -564,7 +564,7 @@ select {
 }
 
 #thaiLotteryPopupContent .prize-label-blue {
-    font-size: 18px;
+    font-size: 20px;
     background: linear-gradient(to bottom, #89CFF0, #007FFF);
     border: 2px solid #0059B3;
     padding: 10px 15px;
@@ -580,10 +580,10 @@ select {
 }
 
 #thaiLotteryPopupContent .prize-label-orange {
-    font-size: 22px;
+    font-size: 20px;
     background: linear-gradient(to bottom, #FFE3A0, #FF8C00);
     border: 2px solid #D97200;
-    margin-top: 8px;
+    margin-top: 3px;
     padding: 10px 15px;
     border-radius: 50px;
 }
@@ -595,8 +595,8 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 10px; /*⬅️ ลด gap จาก 15px */
+    margin-top: 10px; /* ⬅️ ลด margin */
     width: 100%;
 }
 
@@ -604,7 +604,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 3px; /*⬅️ ลด gap จาก 5px */
     width: 100%;
 }
 
@@ -703,4 +703,18 @@ footer {
     margin: 15px 0;
     color: #666;
     padding: 10px 0;
+}
+.popup-controls {
+  display: flex;
+  justify-content: center; /* จัดกึ่งกลางแนวนอน */
+  align-items: center;     /* จัดกึ่งกลางแนวตั้ง (ถ้าจำเป็น) */
+  gap: 10px;               /* ระยะห่างระหว่างปุ่ม */
+  margin: 20px auto;       /* จัดให้อยู่ตรงกลางพร้อมระยะห่างด้านบน-ล่าง */
+  text-align: center;
+}
+.popup-button,
+.close-popup {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
