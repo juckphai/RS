@@ -390,13 +390,13 @@ function displayThaiResults() {
     document.getElementById("display-draw-date").innerText = formatThaiDate(rawDate);
     displayNumberGroup("first-prize-display", document.getElementById("first-prize").value, "thai-red", 50, 26);
     
-    // แสดงเลขหน้า 3 ตัว
-    displayNumberGroup("display-front-three-1", document.getElementById("front-three-1").value, "thai-blue", 30, 18);
-    displayNumberGroup("display-front-three-2", document.getElementById("front-three-2").value, "thai-blue", 30, 18);
+    // แสดงเลขหน้า 3 ตัว (ลำดับแรกและตามด้วยตัวเลข 2 ชุดในแถวเดียวกัน)
+    displayNumberGroup("display-front-three-1", document.getElementById("front-three-1").value, "thai-blue", 40, 20);
+    displayNumberGroup("display-front-three-2", document.getElementById("front-three-2").value, "thai-blue", 40, 20);
     
-    // แสดงเลขท้าย 3 ตัว
-    displayNumberGroup("display-back-three-1", document.getElementById("back-three-1").value, "thai-green", 30, 18);
-    displayNumberGroup("display-back-three-2", document.getElementById("back-three-2").value, "thai-green", 30, 18);
+    // แสดงเลขท้าย 3 ตัว (ลำดับแรกและตามด้วยตัวเลข 2 ชุดในแถวเดียวกัน)
+    displayNumberGroup("display-back-three-1", document.getElementById("back-three-1").value, "thai-green", 40, 20);
+    displayNumberGroup("display-back-three-2", document.getElementById("back-three-2").value, "thai-green", 40, 20);
     
     // แสดงเลขท้าย 2 ตัว
     displayNumberGroup("display-back-two", document.getElementById("back-two").value, "thai-orange", 56, 34);

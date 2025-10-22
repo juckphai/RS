@@ -98,57 +98,57 @@
         </div>
     </div>
 
-    <!-- Popup สำหรับผลรัฐบาลไทย -->
-    <div id="thaiLotteryPopupOverlay" class="popup-overlay">
-        <div id="thaiLotteryPopupContent" class="popup-content">
-            <div class="result-display">
-                <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.5;">
-                    <div class="result-header">
-                        <div class="topic-box">
-                            <img src="logo.png" alt="Logo" class="header-logo">
-                            <span>ผลฉลากกินแบ่งรัฐบาล</span>
-                            <img src="logo.png" alt="Logo" class="header-logo">
-                        </div>
-                    </div>
-
-                    <div class="draw-date"><span id="display-draw-date"></span></div>
-                    
-                    <div class="result-section" style="margin-top: 10px;">
-                        <div class="prize-title">รางวัลที่ 1</div>
-                    </div>
-
-                    <div id="first-prize-display" class="number-group" style="margin-top: 5px;"></div>
-                    
-                    <!-- แก้ไขส่วนนี้ให้แสดงเลขหน้า 3 ตัวและเลขท้าย 3 ตัวในแนวนอน -->
-                    <div class="result-section horizontal-prize-groups">
-                        <div class="three-digit-prize-group">
-                            <p class="prize-label-blue">เลขหน้า 3 ตัว</p>
-                            <div class="horizontal-numbers">
-                                <div id="display-front-three-1" class="number-group"></div>
-                                <div id="display-front-three-2" class="number-group"></div>
-                            </div>
-                        </div>
-                        <div class="three-digit-prize-group">
-                            <p class="prize-label-green">เลขท้าย 3 ตัว</p>
-                            <div class="horizontal-numbers">
-                                <div id="display-back-three-1" class="number-group"></div>
-                                <div id="display-back-three-2" class="number-group"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-section" style="margin-top: 15px;">
-                        <p class="prize-label-orange">เลขท้าย 2 ตัว</p>
-                        <div id="display-back-two" class="number-group"></div>
+<!-- ส่วนของ popup รัฐบาลไทย -->
+<div id="thaiLotteryPopupOverlay" class="popup-overlay">
+    <div id="thaiLotteryPopupContent" class="popup-content">
+        <div class="result-display">
+            <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.5;">
+                <div class="result-header">
+                    <div class="topic-box">
+                        <img src="logo.png" alt="Logo" class="header-logo">
+                        <span>ผลฉลากกินแบ่งรัฐบาล</span>
+                        <img src="logo.png" alt="Logo" class="header-logo">
                     </div>
                 </div>
-            </div>
-            <div class="popup-controls">
-                <button id="saveThaiAsImageButton" class="popup-button">บันทึกเป็นรูปภาพ</button>
-                <button class="close-popup" onclick="closeThaiPopup()">ปิดหน้าต่างนี้</button>
+
+                <div class="draw-date"><span id="display-draw-date"></span></div>
+                
+                <div class="result-section" style="margin-top: 10px;">
+                    <div class="prize-title">รางวัลที่ 1</div>
+                </div>
+
+                <div id="first-prize-display" class="number-group" style="margin-top: 5px;"></div>
+                
+                <!-- แก้ไขส่วนนี้ให้แสดงเลขหน้า 3 ตัวและเลขท้าย 3 ตัวในแนวนอนแบบใหม่ -->
+                <div class="result-section horizontal-prize-groups">
+                    <div class="three-digit-prize-group">
+                        <p class="prize-label-blue">เลขหน้า 3 ตัว</p>
+                        <div class="horizontal-numbers">
+                            <div id="display-front-three-1" class="number-group"></div>
+                            <div id="display-front-three-2" class="number-group"></div>
+                        </div>
+                    </div>
+                    <div class="three-digit-prize-group">
+                        <p class="prize-label-green">เลขท้าย 3 ตัว</p>
+                        <div class="horizontal-numbers">
+                            <div id="display-back-three-1" class="number-group"></div>
+                            <div id="display-back-three-2" class="number-group"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-section" style="margin-top: 15px;">
+                    <p class="prize-label-orange">เลขท้าย 2 ตัว</p>
+                    <div id="display-back-two" class="number-group"></div>
+                </div>
             </div>
         </div>
+        <div class="popup-controls">
+            <button id="saveThaiAsImageButton" class="popup-button">บันทึกเป็นรูปภาพ</button>
+            <button class="close-popup" onclick="closeThaiPopup()">ปิดหน้าต่างนี้</button>
+        </div>
     </div>
+</div>
     
     <button class="back-button" onclick="window.location.href='https://juckphai.github.io/4/index.html'">กลับสู่หน้าหลัก</button>
     <footer>&copy; 2025 Juckphai. All Rights Reserved.</footer>

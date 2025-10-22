@@ -592,10 +592,9 @@ select {
 /* ---------- การจัดวางแนวนอนสำหรับเลขหน้า 3 ตัวและเลขท้าย 3 ตัว ---------- */
 #thaiLotteryPopupContent .horizontal-prize-groups {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
     margin-top: 15px;
     width: 100%;
@@ -606,8 +605,7 @@ select {
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    min-width: 200px;
-    flex: 1;
+    width: 100%;
 }
 
 #thaiLotteryPopupContent .horizontal-numbers {
@@ -615,8 +613,9 @@ select {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 20px;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 #thaiLotteryPopupContent .number-group {
@@ -638,55 +637,15 @@ select {
     gap: 0.5px 20px;
 }
 
-#thaiLotteryPopupContent .popup-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    margin-top: 15px;
-}
-
-#thaiLotteryPopupContent .popup-button {
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 10px 20px;
-    background-color: #007bff;
-    width: 90%;
-    max-width: 200px;
-    font-size: 16px;
-}
-
-#thaiLotteryPopupContent .popup-button:hover {
-    background-color: #0056b3;
-}
-
-#thaiLotteryPopupContent .close-popup {
-    display: block;
-    margin: 0 auto;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 10px 20px;
-    background-color: #f44336;
-    width: 90%;
-    max-width: 200px;
-    font-size: 16px;
-}
-
-#thaiLotteryPopupContent .close-popup:hover {
-    background-color: #d32f2f;
-}
-
-#thaiLotteryPopupContent #first-prize-display {
-    margin-top: 15px;
-    margin-bottom: 15px;
+/* ปรับปรุงสำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 480px) {
+    #thaiLotteryPopupContent .horizontal-numbers {
+        gap: 10px;
+    }
+    
+    #thaiLotteryPopupContent .three-digit-prize-group {
+        width: 100%;
+    }
 }
 
 /* ===== EFFECTS & SHADOWS ===== */
