@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลรางวัลกลุ่มลาวและรัฐบาล</title>
+    
+    <!-- PWA-related additions -->
+    <link rel="manifest" href="manifest-all-lao.json">
+    <meta name="theme-color" content="#FF9800"/>
+    <link rel="apple-touch-icon" href="192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ผลรางวัลกลุ่มลาว">
+    <!-- End of PWA-related additions -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- เราได้ลบ SVG Filter ออกและใช้ CSS filter แทน -->
+
+    <h1>ผลรางวัลกลุ่มลาวและรัฐบาล</h1>
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="topicSelect">1. เลือกชนิดผลรางวัล</label>
+            <select id="topicSelect">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+
+        <!-- ฟอร์มสำหรับหวยลาว (แสดงตามปกติ) -->
+        <div id="laoLotteryFormContent">
+            <div class="form-group">
+                <label for="dateInput">2. เลือกวันที่</label>
+                <input type="date" id="dateInput">
+            </div>
+            <div class="form-group">
+                <label for="numberInput">3. กรอกตัวเลข</label>
+                <input type="text" id="numberInput" placeholder="กรุณาเลือกชนิดผลรางวัลก่อน" pattern="\d*" inputmode="numeric" />
+            </div>
+            <div class="form-footer">
+                <button id="convertButton" class="convert-button">แจงรายละเอียด</button>
+            </div>
+        </div>
+
+        <!-- ฟอร์มสำหรับรัฐบาลไทย (ซ่อนไว้ก่อน) -->
+        <div id="thaiLotteryFormContent" class="thai-lottery-form">
+            <div class="form-group"><label for="draw-date">งวดวันที่ (วว/ดด/ปปปป)</label><div class="date-input-wrapper"><input type="text" id="draw-date" placeholder="วว/ดด/ปปปป (พ.ศ.)" /><button type="button" id="calendarButton">📅</button></div><input type="date" id="hiddenDateInput" style="display: none; visibility: hidden;"></div>
+            <div class="form-group"><label>เลขหน้า 3 ตัว</label><div class="input-pair"><input type="text" id="front-three-1" maxlength="3" placeholder="ชุดที่ 1"><input type="text" id="front-three-2" maxlength="3" placeholder="ชุดที่ 2"></div></div>
+            <div class="form-group"><label>เลขท้าย 3 ตัว</label><div class="input-pair"><input type="text" id="back-three-1" maxlength="3" placeholder="ชุดที่ 1"><input type="text" id="back-three-2" maxlength="3" placeholder="ชุดที่ 2"></div></div>
+            <div class="form-group"><label for="back-two">เลขท้าย 2 ตัว</label><input type="text" id="back-two" maxlength="2" placeholder="กรอกเลขท้าย 2 ตัว"></div>
+            <div class="form-group"><label for="first-prize">รางวัลที่ 1 (6 ตัว)</label><input type="text" id="first-prize" maxlength="6" placeholder="กรอกเลขรางวัลที่ 1"></div>
+            <div class="button-container"><button id="displayThaiResultsButton">แสดงผล</button></div>
+        </div>
+    </div>
+
+    <!-- Popup สำหรับผลลาว -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-content">
+            <div id="captureArea" class="popup-main-content">
+                <div style="position: relative; z-index: 1;">
+                    <div class="result-header">
+                        <div id="popupNameDisplay"></div>
+                    </div>
+                    <p id="popupTimeDisplay"></p>
+                    <p id="popupDateDisplay"></p>
+                    
+                    <div style="margin-top: 15px;">
+                        <div id="popupPrizeTitle" class="prize-title"></div>
+                    </div>
+
+                    <div id="popupMainDigitsDisplay" class="ball-group"></div>
+                    <div class="numbers-display">
+                        <div class="number-group">
+                            <p class="prize-label-blue">3 ตัวบน</p>
+                            <div id="popupThreeDigitsDisplay" class="ball-group"></div>
+                        </div>
+                        <div class="number-group">
+                            <p class="prize-label-orange">2 ตัวล่าง</p>
+                            <div id="popupTwoDigitsDisplay" class="ball-group"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-buttons-container">
+                <div class="popup-buttons">
+                    <button id="popupCircleButton" class="popup-button" onclick="toggleCirclePopup()">สี่เหลี่ยมล่าง</button>
+                    <button id="popupSquareButton" class="popup-button" onclick="toggleSquarePopup()">สี่เหลี่ยมสามตัวบน</button>
+                    <button id="popupCircleTopButton" class="popup-button" onclick="toggleSquareTopPopup()">สี่เหลี่ยมสองตัวบน</button>
+                </div>
+                <button id="saveLaoAsImageButton" class="popup-button" style="background-color: #007bff; max-width: 200px; width: 100%;">บันทึกเป็นรูปภาพ</button>
+                <button class="close-popup" onclick="closePopup()">ปิดหน้าต่างนี้</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup สำหรับผลรัฐบาลไทย -->
+    <div id="thaiLotteryPopupOverlay" class="popup-overlay">
+        <div id="thaiLotteryPopupContent" class="popup-content">
+            <div class="result-display">
+                <div style="position: relative; text-align: center; font-size: 18px; line-height: 0.5;">
+                    <div class="result-header">
+                        <div class="topic-box">
+                            <img src="logo.png" alt="Logo" class="header-logo">
+                            <span>ผลฉลากกินแบ่งรัฐบาล</span>
+                            <img src="logo.png" alt="Logo" class="header-logo">
+                        </div>
+                    </div>
+
+                    <div class="draw-date"><span id="display-draw-date"></span></div>
+                    
+                    <div class="result-section" style="margin-top: 10px;">
+                        <div class="prize-title">รางวัลที่ 1</div>
+                    </div>
+
+                    <div id="first-prize-display" class="number-group" style="margin-top: 5px;"></div>
+                    
+                    <!-- แก้ไขส่วนนี้ให้แสดงเลขหน้า 3 ตัวและเลขท้าย 3 ตัวในแนวนอน -->
+                    <div class="result-section horizontal-prize-groups">
+                        <div class="three-digit-prize-group">
+                            <p class="prize-label-blue">เลขหน้า 3 ตัว</p>
+                            <div class="horizontal-numbers">
+                                <div id="display-front-three-1" class="number-group"></div>
+                                <div id="display-front-three-2" class="number-group"></div>
+                            </div>
+                        </div>
+                        <div class="three-digit-prize-group">
+                            <p class="prize-label-green">เลขท้าย 3 ตัว</p>
+                            <div class="horizontal-numbers">
+                                <div id="display-back-three-1" class="number-group"></div>
+                                <div id="display-back-three-2" class="number-group"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-section" style="margin-top: 15px;">
+                        <p class="prize-label-orange">เลขท้าย 2 ตัว</p>
+                        <div id="display-back-two" class="number-group"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-controls">
+                <button id="saveThaiAsImageButton" class="popup-button">บันทึกเป็นรูปภาพ</button>
+                <button class="close-popup" onclick="closeThaiPopup()">ปิดหน้าต่างนี้</button>
+            </div>
+        </div>
+    </div>
+    
+    <button class="back-button" onclick="window.location.href='https://juckphai.github.io/4/index.html'">กลับสู่หน้าหลัก</button>
+    <footer>&copy; 2025 Juckphai. All Rights Reserved.</footer>
+    
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
