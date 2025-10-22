@@ -595,8 +595,8 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px; /*⬅️ ลด gap จาก 15px */
-    margin-top: 10px; /* ⬅️ ลด margin */
+    gap: 8px; /* ลด gap จาก 10px */
+    margin-top: 8px; /* ลด margin */
     width: 100%;
 }
 
@@ -604,7 +604,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px; /*⬅️ ลด gap จาก 5px */
+    gap: 3px;
     width: 100%;
 }
 
@@ -613,7 +613,7 @@ select {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 2px; /* ชิดกันมาก */
     flex-wrap: nowrap;
     width: 100%;
 }
@@ -640,7 +640,7 @@ select {
 /* ปรับปรุงสำหรับหน้าจอขนาดเล็ก */
 @media (max-width: 480px) {
     #thaiLotteryPopupContent .horizontal-numbers {
-        gap: 10px;
+        gap: 5px;
     }
     
     #thaiLotteryPopupContent .three-digit-prize-group {
@@ -717,4 +717,45 @@ footer {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+/* เพิ่มสไตล์สำหรับเครื่องหมายขีดขั้นแนวตั้ง */
+.vertical-dash-separator {
+    width: 2px;
+    height: 38px;
+    background: linear-gradient(to bottom, #FF69B4, #FF1493);
+    margin: 0 4px; /* ชิดกันมาก */
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* เพิ่มเอฟเฟกต์เงาให้ขีดแนวตั้งดูมีมิติ */
+.vertical-dash-separator::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+}
+
+/* สำหรับหน้าจอเล็ก */
+@media (max-width: 480px) {
+    #thaiLotteryPopupContent .horizontal-numbers {
+        gap: 1.5px;
+    }
+    
+    .vertical-dash-separator {
+        height: 32px;
+        margin: 0 4px;
+        width: 1.5px;
+    }
+}
+    
+    #thaiLotteryPopupContent .horizontal-prize-groups {
+        gap: 6px;
+    }
 }
