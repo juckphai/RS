@@ -485,7 +485,7 @@ select {
     z-index: 1000;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px 0 20px 0;
+    padding: 20px 0 10px 0;
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -517,7 +517,7 @@ select {
 
 #thaiLotteryPopupOverlay .topic-box {
     padding: 1px 1px;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 #thaiLotteryPopupContent .draw-date {
@@ -564,7 +564,7 @@ select {
 }
 
 #thaiLotteryPopupContent .prize-label-blue {
-    font-size: 20px;
+    font-size: 18px;
     background: linear-gradient(to bottom, #89CFF0, #007FFF);
     border: 2px solid #0059B3;
     padding: 10px 15px;
