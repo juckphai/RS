@@ -81,7 +81,7 @@ function createPingPongBall(number, type = 'red', size = 50, fontSize = 26) {
     `;
 }
 
-function createPingPongNumbers(numbers, type = 'red', size = 50, fontSize = 26) {
+function createPingPongNumbers(numbers, type = 'red', size = 40, fontSize = 22) {
     return numbers.split('').map(digit => createPingPongBall(digit, type, size, fontSize)).join('');
 }
 
@@ -213,9 +213,9 @@ function convertNumber() {
             break;
     }
 
-    document.getElementById("popupMainDigitsDisplay").innerHTML = createPingPongNumbers(num, 'red', 50, 26);
-    document.getElementById("popupThreeDigitsDisplay").innerHTML = createPingPongNumbers(threeDigits, 'blue', 50, 26);
-    document.getElementById("popupTwoDigitsDisplay").innerHTML = createPingPongNumbers(twoDigits, 'orange', 50, 26);
+    document.getElementById("popupMainDigitsDisplay").innerHTML = createPingPongNumbers(num, 'red', 40, 22);
+    document.getElementById("popupThreeDigitsDisplay").innerHTML = createPingPongNumbers(threeDigits, 'blue', 40, 22);
+    document.getElementById("popupTwoDigitsDisplay").innerHTML = createPingPongNumbers(twoDigits, 'orange', 40, 22);
 
     // Reset toggle buttons
     ["popupCircleButton", "popupSquareButton", "popupCircleTopButton"].forEach(id => document.getElementById(id).classList.remove("active"));
@@ -261,12 +261,12 @@ function toggleCirclePopup() {
     if (button.classList.toggle("active")) {
         display.innerHTML = `
             <div class="circle-container">
-                ${createPingPongNumbers(twoDigits, 'orange', 50, 26)}
+                ${createPingPongNumbers(twoDigits, 'orange', 40, 22)}
                 <div class="checkmark">✓</div>
             </div>
         `;
     } else {
-        display.innerHTML = createPingPongNumbers(twoDigits, 'orange', 50, 26);
+        display.innerHTML = createPingPongNumbers(twoDigits, 'orange', 40, 22);
     }
 }
 
@@ -278,12 +278,12 @@ function toggleSquarePopup() {
     if (button.classList.toggle("active")) {
         display.innerHTML = `
             <div class="square-container">
-                ${createPingPongNumbers(threeDigits, 'blue', 50, 26)}
+                ${createPingPongNumbers(threeDigits, 'blue', 40, 22)}
                 <div class="checkmark">✓</div>
             </div>
         `;
     } else {
-        display.innerHTML = createPingPongNumbers(threeDigits, 'blue', 50, 26);
+        display.innerHTML = createPingPongNumbers(threeDigits, 'blue', 40, 22);
     }
 }
 
@@ -294,14 +294,14 @@ function toggleSquareTopPopup() {
 
     if (button.classList.toggle("active")) {
         display.innerHTML = `
-            ${createPingPongBall(threeDigits_first, 'blue', 50, 26)}
+            ${createPingPongBall(threeDigits_first, 'blue', 40, 22)}
             <div class="square-two-container">
-                ${createPingPongNumbers(threeDigits_lastTwo, 'blue', 50, 26)}
+                ${createPingPongNumbers(threeDigits_lastTwo, 'blue', 40, 22)}
                 <div class="checkmark">✓</div>
             </div>
         `;
     } else {
-        display.innerHTML = createPingPongNumbers(threeDigits, 'blue', 50, 26);
+        display.innerHTML = createPingPongNumbers(threeDigits, 'blue', 40, 22);
     }
 }
 
@@ -388,18 +388,18 @@ function displayThaiResults() {
     }
     
     document.getElementById("display-draw-date").innerText = formatThaiDate(rawDate);
-    displayNumberGroup("first-prize-display", document.getElementById("first-prize").value, "thai-red", 50, 26);
+    displayNumberGroup("first-prize-display", document.getElementById("first-prize").value, "thai-red", 40, 22);
     
     // แสดงเลขหน้า 3 ตัว (ลำดับแรกและตามด้วยตัวเลข 2 ชุดในแถวเดียวกัน)
-    displayNumberGroup("display-front-three-1", document.getElementById("front-three-1").value, "thai-blue", 45, 22);
-    displayNumberGroup("display-front-three-2", document.getElementById("front-three-2").value, "thai-blue", 45, 22);
+    displayNumberGroup("display-front-three-1", document.getElementById("front-three-1").value, "thai-blue", 40, 22);
+    displayNumberGroup("display-front-three-2", document.getElementById("front-three-2").value, "thai-blue", 40, 22);
     
     // แสดงเลขท้าย 3 ตัว (ลำดับแรกและตามด้วยตัวเลข 2 ชุดในแถวเดียวกัน)
-    displayNumberGroup("display-back-three-1", document.getElementById("back-three-1").value, "thai-green", 45, 22);
-    displayNumberGroup("display-back-three-2", document.getElementById("back-three-2").value, "thai-green", 45, 22);
+    displayNumberGroup("display-back-three-1", document.getElementById("back-three-1").value, "thai-green", 40, 22);
+    displayNumberGroup("display-back-three-2", document.getElementById("back-three-2").value, "thai-green", 40, 22);
     
     // แสดงเลขท้าย 2 ตัว
-    displayNumberGroup("display-back-two", document.getElementById("back-two").value, "thai-orange", 50, 26);
+    displayNumberGroup("display-back-two", document.getElementById("back-two").value, "thai-orange", 40, 22);
     
     showThaiPopup();
     setupSaveThaiImageButton();
